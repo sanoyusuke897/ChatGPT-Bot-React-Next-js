@@ -34,7 +34,7 @@ export default function ChatInput() {
                     ©️{new Date().getFullYear()}&nbsp;{" "}
                     <a
                         className='font-medium py-[1px] border-b border-dotted border-black/60 hover:border-black/0 dark:border-gray-200 dark:hover:border-gray-200/0 animated-underline'
-                        href='https://dr.alivenet.com'
+                        href='https://sanoyusuke.com'
                         target='_blank'
                     >
                         SanoYusukeのChatGPT Bot
