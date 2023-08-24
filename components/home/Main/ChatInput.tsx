@@ -37,9 +37,9 @@ export default function ChatInput() {
                         href='https://sanoyusuke.com'
                         target='_blank'
                     >
-                        SanoYusukeのChatGPT Bot
+                        SanoYusuke
                     </a>
-                    .&nbsp;Based on ChatGPT
+                    のChatGPT Bot.&nbsp;Based on ChatGPT
                 </footer>
             </div>
         </div>
