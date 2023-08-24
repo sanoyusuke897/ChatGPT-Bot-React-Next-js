@@ -39,7 +39,7 @@ export default function ChatInput() {
                     >
                         SanoYusukeのChatGPT Bot
                     </a>
-                    .&nbsp;Base By ChatGPT
+                    .&nbsp;Based on ChatGPT
                 </footer>
             </div>
         </div>
