@@ -37,7 +37,7 @@ export default function ChatInput() {
                         href='https://dr.alivenet.com'
                         target='_blank'
                     >
-                        日報くん ChatGPT
+                        SanoYusuke's ChatGPT
                     </a>
                     .&nbsp;Base By ChatGPT
                 </footer>
