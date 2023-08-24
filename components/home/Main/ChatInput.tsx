@@ -13,7 +13,7 @@ export default function ChatInput() {
                     variant='primary'
                     className='font-medium'
                 >
-                    別の答えを試してみてください
+                    別の答えを試してみる
                 </Button>
                 <div className='flex items-end w-full border border-black/10 dark:border-gray-800/50 bg-white dark:bg-gray-700 rounded-lg shadow-[0_0_15px_rgba(0,0,0,0.1)] py-4'>
                     <div className='mx-3 mb-2.5'>
