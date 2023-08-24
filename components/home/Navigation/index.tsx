@@ -9,7 +9,7 @@ export default function Navigation() {
         state: { displayNavigation } 
     } = useAppContext()
     return (
-        <nav className={`${displayNavigation ? "" : "hidden"} flex flex-col dark relative h-full w-[260px] bg-gray-900 text-gray-300 p-2`}>
+        <nav className={`${displayNavigation ? "hidden md:block" : "hidden"} flex flex-col dark relative h-full w-[260px] bg-gray-900 text-gray-300 p-2`}>
             <Menubar />
             <ChatList />
             <Toolbar />
