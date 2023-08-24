@@ -5,7 +5,7 @@ import Welcome from "./Welcome";
 export default function Main() {
     return (
         <div className="flex-1 relative">
-            <main className="overflow-y-auto relative flex-1 bg-white text-gray-900 dark:bg-gray-800 dark:text-gray-100">
+            <main className="overflow-y-auto w-full h-full bg-white text-gray-900 dark:bg-gray-800 dark:text-gray-100">
                 <Menu />
                 <Welcome />
                 <ChatInput />
