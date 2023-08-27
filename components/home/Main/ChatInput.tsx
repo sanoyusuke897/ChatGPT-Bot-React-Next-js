@@ -20,7 +20,7 @@ export default function ChatInput() {
                         <PiLightningFill />
                     </div>
                     <TextareaAutoSize
-                        className='outline-none flex-1 max-h-64 mb-1.5 bg-transparent text-black dark:text-white resize-none border-0'
+                        className='outline-none flex-1 max-h-20 mb-1.5 bg-transparent text-black dark:text-white resize-none border-0'
                         placeholder='入力してください...'
                         rows={1}
                     />

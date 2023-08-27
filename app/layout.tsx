@@ -1,5 +1,6 @@
 import AppContextProvider from '@/components/AppContext'
-import './globals.css'
+import '@/styles/globals.css'
+import '@/styles/markdown.css'
 import type { Metadata } from 'next'
 // import { Inter } from 'next/font/google'
 
