@@ -20,7 +20,7 @@ export default function ChatInput() {
                         <PiLightningFill />
                     </div>
                     <TextareaAutoSize
-                        className='outline-none flex-1 max-h-20 mb-1.5 bg-transparent text-black dark:text-white resize-none border-0'
+                        className='outline-none flex-1 max-h-64 mb-1.5 bg-transparent text-black dark:text-white resize-none border-0'
                         placeholder='入力してください...'
                         rows={1}
                     />
@@ -34,12 +34,12 @@ export default function ChatInput() {
                     ©️{new Date().getFullYear()}&nbsp;{" "}
                     <a
                         className='font-medium py-[1px] border-b border-dotted border-black/60 hover:border-black/0 dark:border-gray-200 dark:hover:border-gray-200/0 animated-underline'
-                        href='https://sanoyusuke.com'
+                        href='https://x.zhixing.co'
                         target='_blank'
                     >
-                        SanoYusuke
+                        知行小课
                     </a>
-                    のChatGPT Bot.&nbsp;Based on ChatGPT
+                    .&nbsp;基于第三方提供的接口
                 </footer>
             </div>
         </div>
