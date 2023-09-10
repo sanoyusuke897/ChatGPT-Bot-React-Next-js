@@ -3,7 +3,7 @@ import { MdRefresh } from "react-icons/md"
 import { PiLightningFill, PiStopBold } from "react-icons/pi"
 import { FiSend } from "react-icons/fi"
 import TextareaAutoSize from "react-textarea-autosize"
-import { useState } from "react"
+import { useRef, useState } from "react"
 import { v4 as uuidv4 } from "uuid"
 import { useAppContext } from "@/components/AppContext"
 import { Message, MessageRequestBody } from "@/types/chat"
@@ -11,6 +11,7 @@ import { ActionType } from "@/reducers/AppReducer"
 
 export default function ChatInput() {
     const [messageText, setMessageText] = useState("")
+    const stopRef = useRef(false)
     const {
         state: { messageList, currentModel, streamingId }, dispatch
     } = useAppContext()
@@ -21,16 +22,35 @@ export default function ChatInput() {
             role: "user",
             content: messageText
         }
+        dispatch({type: ActionType.ADD_MESSAGE, message })
         const messages = messageList.concat([message])
+        doSend(messages)
+    }
+
+    async function resend() {
+        const messages = [...messageList]
+        if (messages.length !== 0 && messages[messages.length -1].role === "assistant") {
+            dispatch({
+                type: ActionType.REMOVE_MESSAGE,
+                message: messages[messages.length - 1]
+            })
+            messages.splice(messages.length - 1, 1)
+        }
+        doSend(messages)
+    }
+
+    async function doSend(messages: Message[]) {
 
         const body: MessageRequestBody = { messages, model:currentModel }
-        dispatch({type: ActionType.ADD_MESSAGE, message })
+        
         setMessageText("")
+        const controller = new AbortController()
         const response = await fetch("/api/chat", {
             method: "POST",
             headers: {
                 "Content-Type": "application/json"
             },
+            signal: controller.signal,
             body: JSON.stringify(body)
         })
         if (!response.ok) {
@@ -57,6 +77,11 @@ export default function ChatInput() {
         let content = ""
         let done = false
         while (!done) {
+            if (stopRef.current) {
+                stopRef.current = false
+                controller.abort()
+                break
+            }
             const result = await reader.read()
             done = result.done
             const chunk = decoder.decode(result.value)
@@ -79,6 +104,9 @@ export default function ChatInput() {
                         <Button
                         icon={PiStopBold}
                         variant='primary'
+                        onClick={()=> {
+                            stopRef.current = true
+                        }}
                         className='font-medium'
                         >
                             停止する
@@ -87,6 +115,9 @@ export default function ChatInput() {
                         <Button
                         icon={MdRefresh}
                         variant='primary'
+                        onClick={()=> {
+                            resend()
+                        }}
                         className='font-medium'
                         >
                             別の答えを試してみる
